@@ -15,10 +15,6 @@ import App from '@/js/views/App';
 const app = new Vue({
     el: '#app',
     router: Routes,
-    data: {
-        userID: null
-    },
-
     render: h => h(App),
 });
 export default app;
