@@ -29,6 +29,7 @@
                 }
             },
             methods:{
+                //we submit the task to the add-task api then clear the input field
                 submit(){
                     axios.post('api/add-task', {
                         task: this.task,
@@ -55,6 +56,7 @@
             created() {
                     this.getTask()
             },
+            //before the route is mounted we check if the user is logged in
              beforeRouteEnter (to, from, next) {
                if (!window.Laravel.isLoggedin) {
                      return next('/');

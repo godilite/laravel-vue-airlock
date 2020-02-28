@@ -42,6 +42,7 @@
             }
         },
         mounted(){
+            //Check if the user is Authenticated
             this.isLoggedIn = window.Laravel.isLoggedin
             this.isLoggedIn ? this.name = window.Laravel.user['name'] : this.name = null
         }
