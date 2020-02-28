@@ -14,3 +14,8 @@ use Illuminate\Http\Request;
 */
 Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@register');
+Route::get('/logout', 'UserController@logout');
+
+//Task Routes
+Route::post('/add-task', 'TaskController@addTask')->middleware('auth:airlock');
+Route::get('/get-task', 'TaskController@getTask')->middleware('auth:airlock');

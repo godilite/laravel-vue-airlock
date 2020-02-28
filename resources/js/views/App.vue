@@ -16,7 +16,8 @@
                     <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
                     <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
                     <li class="nav-link" v-if="isLoggedIn"> Hi, {{name}}</li>
-                    <router-link :to="{ name: 'board' }" class="nav-link" v-if="isLoggedIn">Board</router-link>
+                    <router-link :to="{ name: 'dashboard' }" class="nav-link" v-if="isLoggedIn">Board</router-link>
+                    <a class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</a>
                 </ul>
 
             </div>
@@ -33,6 +34,11 @@
             return {
                 isLoggedIn : true,
                 name : null
+            }
+        },
+        methods: {
+            logout(){
+                axios.get('api/logout')
             }
         },
         mounted(){

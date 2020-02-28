@@ -61,7 +61,13 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return response()->json($message = 'Login successful', 200);
+            return response()->json(['message' => 'Login successful'], 200);
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json(['message' => 'Logged Out'], 200);
     }
 }

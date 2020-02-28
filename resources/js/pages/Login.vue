@@ -57,7 +57,7 @@
                             password: this.password
                           })
                           .then(response => {
-                              console.log(response)
+                            this.$router.go('/dashboard')
                           })
                           .catch(function (error) {
                             console.error(error);
@@ -66,12 +66,12 @@
                     }
                 }
             },
-            // beforeRouteEnter (to, from, next) {
-            //     if (localStorage.getItem('jwt')) {
-            //         return next('board');
-            //     }
+            beforeRouteEnter (to, from, next) {
+               if (window.Laravel.isLoggedin) {
+                     return next('dashboard');
+                 }
 
-            //     next();
-            // }
+                next();
+            }
         }
     </script>
